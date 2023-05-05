@@ -44,13 +44,12 @@ def datafeed():
                     bid = data[5]  # Get the bid price
                     ask = data[8]  # Get the ask price
                     print(f"Bid: {bid}, Ask: {ask}")  # Print the bid and ask prices
-
                     # Aggiorniamo il testo della etichetta con i dati ricevuti
                     label.config(text="{} Bid: {} Ask: {}".format(name, bid, ask)) # Usiamo la funzione format per creare la stringa
-                    window.after(1000, datafeed) # Usiamo la funzione after per richiamare la funzione datafeed ogni secondo
+            window.after(1000, datafeed) # Usiamo la funzione after per richiamare la funzione datafeed ogni secondo
 
-    except socket.error as err:
-        errore(f"errore nel creare il socket: {err}")
+    except socket.error as err: # Chiudiamo il blocco try con un except
+        errore(f"errore nel creare il socket: {err}") # Gestiamo l'errore
 
 
 # Creiamo una finestra grafica usando la libreria tkinter
